@@ -1,6 +1,6 @@
 defmodule Loods.Guardian do
   alias Loods.Accounts
-  use Guardian, otp_app: :loods_guardian
+  use Guardian, otp_app: :loods
 
   def subject_for_token(user, _claims) do
     sub = to_string(user.id)

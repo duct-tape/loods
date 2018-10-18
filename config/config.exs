@@ -22,7 +22,7 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:user_id]
 
-config :loods_guardian, Loods.Guardian,
+config :loods, Loods.Guardian,
   issuer: "loods_guardian",
   secret_key: "SuPerseCret_aBraCadabrA"
 

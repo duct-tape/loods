@@ -1,6 +1,6 @@
 defmodule Loods.Auth.Pipeline do
   use Guardian.Plug.Pipeline,
-    otp_app: :loods_guardian,
+    otp_app: :loods,
     error_handler: Loods.Auth.ErrorHandler,
     module: Loods.Guardian
 
