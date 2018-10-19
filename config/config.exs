@@ -26,6 +26,22 @@ config :loods, Loods.Guardian,
   issuer: "loods_guardian",
   secret_key: "SuPerseCret_aBraCadabrA"
 
+config :loods, Rummage.Ecto, [
+  default_repo: Loods.Repo,
+  default_per_page: 2,
+]
+# config :loods, Loods, [
+#   default_helpers: Loods.Router.Helpers,
+#   default_per_page: 2,
+# ]
+
+config :loods, ecto_repos: [Loods.Repo]
+
+config :loods, Rummage.Ecto,
+  repo: Loods.Repo,
+  per_page: 10
+
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"

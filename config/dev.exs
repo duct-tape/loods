@@ -56,7 +56,3 @@ config :loods, Loods.Repo,
   database: "loods",
   hostname: "localhost",
   pool_size: 10
-
-config :rummage_ecto, Rummage.Ecto,
-  default_repo: Loods.Repo,
-  default_per_page: 2

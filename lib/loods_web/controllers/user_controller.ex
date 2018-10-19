@@ -5,8 +5,14 @@ defmodule LoodsWeb.UserController do
   alias Loods.Accounts.User
 
   def index(conn, params) do
-    users = Accounts.filter_users(params)
-    render(conn, "index.html", users: users)
+    {users, paginator} = Accounts.filter_users(
+      %{
+          paginate: %{
+            per_page: 1,
+            page: 2
+          }
+      })
+    render(conn, "index.html", %{users: users, paginator: paginator})
   end
 
   def new(conn, _params) do

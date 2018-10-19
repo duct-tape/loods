@@ -4,9 +4,11 @@ defmodule Loods.Accounts do
   """
 
   import Ecto.Query, warn: false
+  import Rummage.Ecto
   alias Loods.Repo
-
   alias Loods.Accounts.User
+  alias Rummage.Ecto.Hook.Paginate
+  require IEx
 
   @doc """
   Returns the list of users.
@@ -21,9 +23,10 @@ defmodule Loods.Accounts do
     Repo.all(User)
   end
 
-  def filter_users(params) do
-
-    User |> Repo.all
+  def filter_users(params \\ %{}) do
+    opts = [paginate: Rummage.Ecto.Hook.Paginate, repo: Repo]
+    {q, r} = rummage(User, params, opts)
+    {q |> Repo.all, r}
   end
 
   @doc """

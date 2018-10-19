@@ -43,7 +43,8 @@ defmodule Loods.Mixfile do
       {:cowboy, "~> 1.0"},
       {:bcrypt_elixir, "~> 1.0"},
       {:guardian, "~> 1.0"},
-      {:comeonin, "~> 2.5"}
+      {:comeonin, "~> 2.5"},
+      {:rummage_ecto, "~> 2.0.0-rc.0"}
     ]
   end
 
