@@ -24,7 +24,11 @@ defmodule Loods.Accounts do
   end
 
   def filter_users(params \\ %{}) do
-    opts = [paginate: Rummage.Ecto.Hook.Paginate, repo: Repo]
+    opts = [
+      sort: Rummage.Ecto.Hook.Sort,
+      paginate: Rummage.Ecto.Hook.Paginate,
+      repo: Repo
+    ]
     {q, r} = rummage(User, params, opts)
     {q |> Repo.all, r}
   end

@@ -44,7 +44,8 @@ defmodule Loods.Mixfile do
       {:bcrypt_elixir, "~> 1.0"},
       {:guardian, "~> 1.0"},
       {:comeonin, "~> 2.5"},
-      {:rummage_ecto, "~> 2.0.0-rc.0"}
+      {:rummage_ecto, "~> 2.0.0-rc.0"},
+      {:rummage_phoenix, path: "/home/ngaranko/Projects/rummage_phoenix"}
     ]
   end
 

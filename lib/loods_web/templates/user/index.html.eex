@@ -2,12 +2,11 @@
 
 <table class="table">
   <thead>
-    <tr>
-      <th>Name</th>
-      <th>Username</th>
-      <th>Password</th>
-
-      <th></th>
+      <tr>
+          <th><%= sort_link @conn, @paginator, :name %></th>
+          <th><%= sort_link @conn, @paginator, :username %></th>
+          <th>Password</th>
+          <th></th>
     </tr>
   </thead>
   <tbody>
