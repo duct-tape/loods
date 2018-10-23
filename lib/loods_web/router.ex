@@ -35,6 +35,7 @@ defmodule LoodsWeb.Router do
 
     pipe_through [:browser, :with_session]
     resources "/users", UserController
+    resources "/parts", ItemController
     get "/logout", SessionController, :show
   end
 

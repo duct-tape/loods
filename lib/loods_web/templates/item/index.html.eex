@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-md-8 col-sm-7">
+        <h2>Listing Items</h2>
+    </div>
+    <div class="col-md-4 col-sm-5 text-right">
+        <span><%= link "New Item", to: item_path(@conn, :new), class: "btn btn-default btn-xs" %></span>
+    </div>
+</div>
+<br />
+<table class="table">
+  <thead>
+      <tr>
+          <th><%= sort_link @conn, @paginator, :name %></th>
+          <th><%= sort_link @conn, @paginator, :part_number %></th>
+          <th><%= sort_link @conn, @paginator, :location %></th>
+          <th><%= sort_link @conn, @paginator, :quantity %></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+<%= for item <- @items do %>
+    <tr>
+      <td><%= item.name %></td>
+      <td><%= item.part_number %></td>
+      <td><%= item.location %></td>
+      <td><%= item.quantity %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: item_path(@conn, :show, item), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: item_path(@conn, :edit, item), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: item_path(@conn, :delete, item), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+
+<div class="row">
+    <div class="col-md-8 col-sm-6">
+        <%= pagination_link(@conn, @paginator) %>
+    </div>
+    <div class="col-md-4 col-sm-6 text-right">
+        <span><%= @paginator.paginate.total_count %> Users</span>
+    </div>
+</div>

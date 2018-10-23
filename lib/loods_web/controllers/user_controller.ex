@@ -2,34 +2,12 @@ defmodule LoodsWeb.UserController do
   use LoodsWeb, :controller
   use Rummage.Phoenix.Controller
 
+  alias Loods.Rummage
   alias Loods.Accounts
   alias Loods.Accounts.User
 
   def index(conn, params) do
-    {page, _} = Integer.parse(Map.get(params, "page", "1"))
-    sort = Map.get(params, "sort", "name")
-    sort_order = if sort =~ "-" do
-      :desc
-    else
-      :asc
-    end
-    sort = sort
-    |> String.replace("-", "")
-    |> String.to_atom()
-    rummage = %{
-      sort: %{
-        field: sort,
-        order: sort_order,
-      },
-      paginate: %{
-        per_page: 2,
-        page: page,
-      },
-      link_names: %{
-        sort: "sort",
-        paginate: "page"
-      }
-    }
+    rummage = Rummage.convert_params(params)
     {users, paginator} = Accounts.filter_users(rummage)
     render(conn, "index.html", %{users: users, paginator: paginator})
   end

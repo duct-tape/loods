@@ -8,7 +8,6 @@ defmodule Loods.Accounts do
   alias Loods.Repo
   alias Loods.Accounts.User
   alias Rummage.Ecto.Hook.Paginate
-  require IEx
 
   @doc """
   Returns the list of users.
