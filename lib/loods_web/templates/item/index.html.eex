@@ -56,7 +56,7 @@
                     <% end %>
                 </tbody>
             </table>
-
+            <br />
             <div class="row">
                 <div class="col-md-8 col-sm-6">
                     <%= pagination_link(@conn, @paginator) %>
