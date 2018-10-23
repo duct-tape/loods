@@ -33,20 +33,37 @@
         <!-- begin:: Page -->
         <div class="m-grid m-grid--hor m-grid--root m-page">
             <!-- BEGIN: Header -->
-            <header id="m_header" class="m-grid__item    m-header "  m-minimize="minimize" m-minimize-mobile="minimize" m-minimize-offset="200" m-minimize-mobile-offset="200" >
+            <header id="m_header" class="m-grid__item    m-header " m-minimize-offset="200" m-minimize-mobile-offset="200">
                 <div class="m-container m-container--fluid m-container--full-height">
-                    <div class="m-stack m-stack--ver m-stack--desktop  m-header__wrapper">
+                    <div class="m-stack m-stack--ver m-stack--desktop">
                         <!-- BEGIN: Brand -->
-                        <div class="m-stack__item m-brand m-brand--mobile">
+                        <div class="m-stack__item m-brand  m-brand--skin-dark ">
                             <div class="m-stack m-stack--ver m-stack--general">
                                 <div class="m-stack__item m-stack__item--middle m-brand__logo">
-                                    <a href="index.html" class="m-brand__logo-wrapper">1
-                                        <img alt="" src="<%= static_path(@conn, "/images/logo-1.png") %>"/>
+                                    <a href="index.html" class="m-brand__logo-wrapper">
+                                        <img alt="" src="<%= static_path(@conn, "/images/logo-1.png") %>">
                                     </a>
                                 </div>
                                 <div class="m-stack__item m-stack__item--middle m-brand__tools">
+                                    <!-- BEGIN: Left Aside Minimize Toggle -->
+                                    <a href="javascript:;" id="m_aside_left_minimize_toggle" class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-desktop-inline-block m-brand__toggler--active">
+                                        <span></span>
+                                    </a>
+                                    <!-- END -->
+                                    <!-- BEGIN: Responsive Aside Left Menu Toggler -->
+                                    <a href="javascript:;" id="m_aside_left_offcanvas_toggle" class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-tablet-and-mobile-inline-block">
+                                        <span></span>
+                                    </a>
+                                    <!-- END -->
+
+                                    <!-- BEGIN: Responsive Header Menu Toggler -->
+                                    <a id="m_aside_header_menu_mobile_toggle" href="javascript:;" class="m-brand__icon m-brand__toggler m--visible-tablet-and-mobile-inline-block">
+                                        <span></span>
+                                    </a>
+                                    <!-- END -->
+
                                     <!-- BEGIN: Topbar Toggler -->
-                                    <a id="m_aside_header_topbar_mobile_toggle" href="javascript:;" class="m-brand__icon">
+                                    <a id="m_aside_header_topbar_mobile_toggle" href="javascript:;" class="m-brand__icon m--visible-tablet-and-mobile-inline-block">
                                         <i class="flaticon-more"></i>
                                     </a>
                                     <!-- BEGIN: Topbar Toggler -->
@@ -54,30 +71,29 @@
                             </div>
                         </div>
                         <!-- END: Brand -->
-                        <div class="m-stack__item m-stack__item--middle m-stack__item--center">
-                            <!-- BEGIN: Brand -->
-                            <a href="index.html" class="m-brand m-brand--desktop">
-                                <img alt="" src="<%= static_path(@conn, "/images/logo-1.png") %>"/>
-                            </a>
-                            <!-- END: Brand -->
-                        </div>
+                        <div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav">
+                            <!-- BEGIN: Horizontal Menu -->
+                            <button class="m-aside-header-menu-mobile-close  m-aside-header-menu-mobile-close--skin-dark " id="m_aside_header_menu_mobile_close_btn"><i class="la la-close"></i></button>
 
-                        <div class="m-stack__item m-stack__item--right">
+                            <div id="m_header_menu" class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-dark m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-dark m-aside-header-menu-mobile--submenu-skin-dark ">
+                                <ul class="m-menu__nav ">
+                                </ul>
+                            </div>
+                            <!-- END: Horizontal Menu -->
                             <!-- BEGIN: Topbar -->
                             <div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general">
                                 <div class="m-stack__item m-topbar__nav-wrapper">
                                     <ul class="m-topbar__nav m-nav m-nav--inline">
-                                        <li class="m-nav__item m-nav__item--focus m-dropdown m-dropdown--large m-dropdown--arrow m-dropdown--align-center m-dropdown--mobile-full-width m-dropdown--skin-light  m-list-search m-list-search--skin-light" m-dropdown-toggle="click" m-dropdown-persistent="1" id="m_quicksearch" m-quicksearch-mode="dropdown">
+                                        <li class="m-nav__item m-dropdown m-dropdown--large m-dropdown--arrow m-dropdown--align-center m-dropdown--mobile-full-width m-dropdown--skin-light   m-list-search m-list-search--skin-light" m-dropdown-toggle="click" id="m_quicksearch" m-quicksearch-mode="dropdown" m-dropdown-persistent="1">
+
                                             <a href="#" class="m-nav__link m-dropdown__toggle">
-                                                <span class="m-nav__link-icon">
-                                                    <span class="m-nav__link-icon-wrapper"><i class="flaticon-search-1"></i></span>
-                                                </span>
+                                                <span class="m-nav__link-icon"><span class="m-nav__link-icon-wrapper"><i class="flaticon-search-1"></i></span></span>
                                             </a>
-                                            <div class="m-dropdown__wrapper">
+                                            <div class="m-dropdown__wrapper" style="z-index: 101;">
                                                 <span class="m-dropdown__arrow m-dropdown__arrow--center"></span>
                                                 <div class="m-dropdown__inner ">
                                                     <div class="m-dropdown__header">
-                                                        <form  class="m-list-search__form">
+                                                        <form class="m-list-search__form">
                                                             <div class="m-list-search__form-wrapper">
                                                                 <span class="m-list-search__form-input-wrapper">
                                                                     <input id="m_quicksearch_input" autocomplete="off" type="text" name="q" class="m-list-search__form-input" value="" placeholder="Search...">
@@ -86,27 +102,26 @@
                                                                     <i class="la la-remove"></i>
                                                                 </span>
                                                             </div>
-                                                        </form>  
+                                                        </form>
                                                     </div>
                                                     <div class="m-dropdown__body">
-                                                        <div class="m-dropdown__scrollable m-scrollable" data-scrollable="true" data-height="300" data-mobile-height="200">
+                                                        <div class="m-dropdown__scrollable m-scrollable m-scroller ps" data-scrollable="true" data-height="300" data-mobile-height="200" style="height: 300px; overflow: hidden;">
                                                             <div class="m-dropdown__content">
                                                             </div>
-                                                        </div>
+                                                            <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 4px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </li>
-                                        <%= if current_user_exists(@conn) do %>
-                                        <li class="m-nav__item m-dropdown m-dropdown--medium m-dropdown--arrow  m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
+                                        <li class="m-nav__item m-topbar__user-profile  m-dropdown m-dropdown--medium m-dropdown--arrow  m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
                                             <a href="#" class="m-nav__link m-dropdown__toggle">
-                                                <span class="m-topbar__username m--hidden-mobile"><%= current_user(@conn).username %></span>
                                                 <span class="m-topbar__userpic">
-                                                    <img src="<%= static_path(@conn, "/images/user4.jpg") %>" class="m--img-rounded m--marginless m--img-centered" alt=""/>
+                                                    <img src="assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless m--img-centered" alt="">
                                                 </span>
                                                 <span class="m-nav__link-icon m-topbar__usericon  m--hide">
                                                     <span class="m-nav__link-icon-wrapper"><i class="flaticon-user-ok"></i></span>
                                                 </span>
+                                                <span class="m-topbar__username m--hide">Nick</span>
                                             </a>
                                             <div class="m-dropdown__wrapper">
                                                 <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
@@ -114,10 +129,10 @@
                                                     <div class="m-dropdown__header m--align-center">
                                                         <div class="m-card-user m-card-user--skin-light">
                                                             <div class="m-card-user__pic">
-                                                                <img src="<%= static_path(@conn, "/images/user4.jpg") %>" class="m--img-rounded m--marginless" alt=""/>
+                                                                <img src="assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless" alt="">
                                                             </div>
                                                             <div class="m-card-user__details">
-                                                                <span class="m-card-user__name m--font-weight-500"><%= current_user(@conn).username %></span>
+                                                                <span class="m-card-user__name m--font-weight-500">Mark Andre</span>
                                                                 <a href="" class="m-card-user__email m--font-weight-300 m-link">mark.andre@gmail.com</a>
                                                             </div>
                                                         </div>
@@ -131,58 +146,36 @@
                                                                 <li class="m-nav__item">
                                                                     <a href="profile.html" class="m-nav__link">
                                                                         <i class="m-nav__link-icon flaticon-profile-1"></i>
-                                                                        <span class="m-nav__link-title">  
-                                                                            <span class="m-nav__link-wrap">      
-                                                                                <span class="m-nav__link-text">My Profile</span>      
-                                                                                <span class="m-nav__link-badge"><span class="m-badge m-badge--success">2</span></span>  
+                                                                        <span class="m-nav__link-title">
+                                                                            <span class="m-nav__link-wrap">
+                                                                                <span class="m-nav__link-text">My Profile</span>
+                                                                                <span class="m-nav__link-badge"><span class="m-badge m-badge--success">2</span></span>
                                                                             </span>
                                                                         </span>
                                                                     </a>
                                                                 </li>
                                                                 <li class="m-nav__item">
-                                                                    <a href="profile.html" class="m-nav__link">
-                                                                        <i class="m-nav__link-icon flaticon-share"></i>
-                                                                        <span class="m-nav__link-text">Activity</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="m-nav__item">
-                                                                    <a href="profile.html" class="m-nav__link">
-                                                                        <i class="m-nav__link-icon flaticon-chat-1"></i>
-                                                                        <span class="m-nav__link-text">Messages</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="m-nav__separator m-nav__separator--fit">
-                                                                </li>
-                                                                <li class="m-nav__item">
-                                                                    <a href="profile.html" class="m-nav__link">
-                                                                        <i class="m-nav__link-icon flaticon-info"></i>
-                                                                        <span class="m-nav__link-text">FAQ</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="m-nav__item">
-                                                                    <a href="profile.html" class="m-nav__link">
-                                                                        <i class="m-nav__link-icon flaticon-lifebuoy"></i>
-                                                                        <span class="m-nav__link-text">Support</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="m-nav__separator m-nav__separator--fit">
-                                                                </li>
-                                                                <li class="m-nav__item">
-                                                                    <%= link "Logout", to: session_path(@conn, :show), class: "btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder" %>
-                                                                </li>
+                                                                    <li class="m-nav__item">
+                                                                        <a href="profile.html" class="m-nav__link">
+                                                                            <i class="m-nav__link-icon flaticon-chat-1"></i>
+                                                                            <span class="m-nav__link-text">Messages</span>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="m-nav__separator m-nav__separator--fit">
+                                                                    </li>
+                                                                    <li class="m-nav__separator m-nav__separator--fit">
+                                                                    </li>
+                                                                    <li class="m-nav__item">
+                                                                        <a href="snippets/pages/user/login-1.html" class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
+                                                                            Logout
+                                                                        </a>
+                                                                    </li>
                                                             </ul>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </li>
-                                        <% else %>
-                                        <li class="m-nav__item">
-                                            <%= link to: session_path(@conn, :new), class: "m-nav__link" do %>
-                                            <span class="m-nav__link--text">Login</span>
-                                            <%= end %>
-                                        </li>
-                                        <%= end %>
+                                         </li>
                                     </ul>
                                 </div>
                             </div>
@@ -193,50 +186,73 @@
             </header>
             <!-- END: Header -->
             <!-- begin::Body -->
-            <div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor-desktop m-grid--desktop m-body">
-                <div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-container m-container--responsive m-container--xxl m-container--full-height">
-
-                    <div class="m-grid__item m-grid__item--fluid m-wrapper">
-                      <!-- BEGIN: Subheader -->
-                      <div class="m-subheader ">
-                          <div class="d-flex align-items-center">
-                              <div class="mr-auto">
-                                <h3 class="m-subheader__title m-subheader__title--separator">Dashboard</h3>
-                              <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
-                                  <li class="m-nav__item m-nav__item--home">
-                                      <a href="#" class="m-nav__link m-nav__link--icon">
-                                          <i class="m-nav__link-icon la la-home"></i>
-                                      </a>
-                                  </li>
-                                  <li class="m-nav__separator">-</li>
-                                  <li class="m-nav__item">
-                                      <a href="" class="m-nav__link">
-                                          <span class="m-nav__link-text">Dashboard</span>
-                                      </a>
-                                  </li>
-                                  <li class="m-nav__separator">-</li>
-                                  <li class="m-nav__item">
-                                      <a href="" class="m-nav__link">
-                                          <span class="m-nav__link-text">Generate Reports</span>
-                                      </a>
-                                  </li>
-                              </ul>
+            <div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
+      
+                <!-- BEGIN: Left Aside -->
+                <button class="m-aside-left-close  m-aside-left-close--skin-dark " id="m_aside_left_close_btn"><i class="la la-close"></i></button>
+                <div id="m_aside_left" class="m-grid__item  m-aside-left  m-aside-left--skin-dark ">
+                    <!-- BEGIN: Aside Menu -->
+                    <div id="m_ver_menu" class="m-aside-menu  m-aside-menu--skin-dark m-aside-menu--submenu-skin-dark " m-menu-vertical="1" m-menu-scrollable="0" m-menu-dropdown-timeout="500">    
+                        <ul class="m-menu__nav ">
+                            <li class="m-menu__section m-menu__section--first">
+                                <h4 class="m-menu__section-text">Departments</h4>
+                                <i class="m-menu__section-icon flaticon-more-v2"></i>
+                            </li>
+                            <li class="m-menu__item " aria-haspopup="true">
+                                <a href="/" class="m-menu__link ">
+                                    <span class="m-menu__item-here"></span><i class="m-menu__link-icon flaticon-line-graph"></i><span class="m-menu__link-text">Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="m-menu__item " aria-haspopup="true" m-menu-link-redirect="1"><a href="inner.html" class="m-menu__link "><span class="m-menu__item-here"></span><i class="m-menu__link-icon flaticon-light"></i><span class="m-menu__link-text">Administration</span></a></li><li class="m-menu__item " aria-haspopup="true" m-menu-link-redirect="1"><a href="inner.html" class="m-menu__link "><span class="m-menu__item-here"></span><i class="m-menu__link-icon flaticon-share"></i><span class="m-menu__link-text">Management</span></a></li>
+                            <li class="m-menu__section ">
+                                <h4 class="m-menu__section-text">Reports</h4>
+                                <i class="m-menu__section-icon flaticon-more-v2"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END: Aside Menu -->
+                </div>
+                <!-- END: Left Aside -->
+                <div class="m-grid__item m-grid__item--fluid m-wrapper">
+                    <!-- BEGIN: Subheader -->
+                    <div class="m-subheader ">
+                        <div class="d-flex align-items-center">
+                            <div class="mr-auto">
+                                <h3 class="m-subheader__title m-subheader__title--separator">Inner page</h3>
+                                <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                                    <li class="m-nav__item m-nav__item--home">
+                                        <a href="#" class="m-nav__link m-nav__link--icon">
+                                            <i class="m-nav__link-icon la la-home"></i>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__separator">-</li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <span class="m-nav__link-text">Actions</span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__separator">-</li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <span class="m-nav__link-text">Create New Post</span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
-                          </div>
-                      </div>
-                      <!-- END: Subheader -->
-                      <div class="m-content">
-
-                          <%= if get_flash(@conn, :info) do %>
-                              <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-                          <%= end %>
-                          <%= if get_flash(@conn, :error) do %>
-                              <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-                          <%= end  %>
-
-                          <%= render @view_module, @view_template, assigns %>
-                      </div>
-                  </div>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END: Subheader -->
+                    <div class="m-content">
+                        <%= if get_flash(@conn, :info) do %>
+                            <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+                        <%= end %>
+                        <%= if get_flash(@conn, :error) do %>
+                            <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+                        <%= end  %>
+                        <%= render @view_module, @view_template, assigns %>
+                    </div>
                 </div>
             </div>
             <!-- end:: Body -->

@@ -1,33 +1,37 @@
-<h2>Show Item</h2>
-
-<ul>
-
-  <li>
-    <strong>Name:</strong>
-    <%= @item.name %>
-  </li>
-
-  <li>
-    <strong>Part number:</strong>
-    <%= @item.part_number %>
-  </li>
-
-  <li>
-    <strong>Location:</strong>
-    <%= @item.location %>
-  </li>
-
-  <li>
-    <strong>Quantity:</strong>
-    <%= @item.quantity %>
-  </li>
-
-  <li>
-    <strong>Description:</strong>
-    <%= @item.description %>
-  </li>
-
-</ul>
-
-<span><%= link "Edit", to: item_path(@conn, :edit, @item) %></span>
-<span><%= link "Back", to: item_path(@conn, :index) %></span>
+<div class="m-portlet m-portlet--mobile  m-portlet--unair">
+    <div class="m-portlet__head">
+        <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+                <h3 class="m-portlet__head-text">
+                    Item: <%= @item.name %>
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="m-portlet__body">
+        <ul>
+            <li>
+                <strong>Name:</strong>
+                <%= @item.name %>
+            </li>
+            <li>
+                <strong>Part number:</strong>
+                <%= @item.part_number %>
+            </li>
+            <li>
+                <strong>Location:</strong>
+                <%= @item.location %>
+            </li>
+            <li>
+                <strong>Quantity:</strong>
+                <%= @item.quantity %>
+            </li>
+            <li>
+                <strong>Description:</strong>
+                <%= @item.description %>
+            </li>
+        </ul>
+        <span><%= link "Edit", to: item_path(@conn, :edit, @item) %></span>
+        <span><%= link "Back", to: item_path(@conn, :index) %></span>
+    </div>
+</div>
